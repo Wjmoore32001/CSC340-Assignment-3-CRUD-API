@@ -1,3 +1,6 @@
 /home/will/School/softwareEngineering/javaProgramms/CSC340-Assignment-3-CRUD-API/src/main/java/com/wmoore/Assignment3_CRUD_API/Application.java
 /home/will/School/softwareEngineering/javaProgramms/CSC340-Assignment-3-CRUD-API/src/main/java/com/wmoore/Assignment3_CRUD_API/character/Character.java
+/home/will/School/softwareEngineering/javaProgramms/CSC340-Assignment-3-CRUD-API/src/main/java/com/wmoore/Assignment3_CRUD_API/character/CharacterController.java
+/home/will/School/softwareEngineering/javaProgramms/CSC340-Assignment-3-CRUD-API/src/main/java/com/wmoore/Assignment3_CRUD_API/character/CharacterRepository.java
+/home/will/School/softwareEngineering/javaProgramms/CSC340-Assignment-3-CRUD-API/src/main/java/com/wmoore/Assignment3_CRUD_API/character/CharacterService.java
 /home/will/School/softwareEngineering/javaProgramms/CSC340-Assignment-3-CRUD-API/src/main/java/com/wmoore/Assignment3_CRUD_API/character/CharacterType.java

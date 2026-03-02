@@ -13,12 +13,13 @@ public class Character {
 
     @Column(nullable = false, length = 60, unique = true)
     public String name;
+
     @Enumerated(EnumType.STRING)
     public CharacterType characterType;
 
     public Integer age;
     public String description;
-    public int chapterFirstAppearance;
+    public Integer chapterFirstAppearance;
 
 
     protected Character(){}
