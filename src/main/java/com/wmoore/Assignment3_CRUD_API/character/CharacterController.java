@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -16,14 +17,24 @@ public class CharacterController {
     this.characterService = characterService;
   }
 
-  @PostMapping("/create-character")
-  public Character createCharacter(@RequestBody Character character) {
-    return characterService.createCharacter(character);
+  // GetMappings
+  @GetMapping("/by-type")
+  public List<Character> byType(@RequestParam("type") CharacterType type) {
+    return characterService.getByType(type);
   }
 
   @GetMapping("/get-character/all")
   public ResponseEntity<List<Character>> getAllCharacters() {
     return ResponseEntity.ok(characterService.getAllCharacters());
+  }
+
+  @GetMapping("/get-character-name/{name}")
+  public ResponseEntity<Collection<Character>> getCharacterByName(@PathVariable String name) {
+    Collection<Character> c = characterService.getCharacterByName(name);
+    if (c == null || c.isEmpty()) {
+      return ResponseEntity.notFound().build();
+    }
+    return ResponseEntity.ok(c);
   }
 
   @GetMapping("/get-character/{id}")
@@ -35,6 +46,35 @@ public class CharacterController {
       return ResponseEntity.status(404).body(Map.of("error", "Character Not Found", "id", id));
     }
 
+  }
+
+  @GetMapping("/search")
+  public List<Character> searchCharacterByName(@RequestParam String name) {
+    return characterService.searchCharacterByName(name);
+  }
+
+  // PostMappings
+  @PostMapping("/create-character")
+  public Character createCharacter(@RequestBody Character character) {
+    return characterService.createCharacter(character);
+  }
+
+  // PutMappings
+  @PutMapping("/update-character/name/{id}/{newName}")
+  public ResponseEntity<?> updateCharacterName(@PathVariable Long id, @PathVariable String newName) {
+    Character c = characterService.updateCharacterName(id, newName);
+    if (c != null) {
+      return ResponseEntity.ok(c);
+    } else {
+      return ResponseEntity.status(404).body(Map.of("error", "character not found", "id", id));
+    }
+  }
+
+  // DeleteMappings
+  @DeleteMapping("/delete-character/{id}")
+  public ResponseEntity<Void> deleteCharacter(@PathVariable Long id) {
+    characterService.deleteCharacter(id);
+    return ResponseEntity.noContent().build();
   }
 
 }
