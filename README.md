@@ -1,78 +1,74 @@
 # CSC340-Assignment-3-CRUD-API
 
-OneDrive Video:
+Demo OneDrive Video:
 https://uncg-my.sharepoint.com/:v:/g/personal/wjmoore_uncg_edu/IQBOaF6WsvsKQaRnPkjaezaGAUERxPWX4OBhTfv2al93ltI?e=8VyCzD&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
-# Demo 
+# Assignment 3 CRUD API – Jujutsu Kaisen Characters
 
-## 1. Create a Character 
+This is a Spring Boot CRUD API that stores Jujutsu Kaisen character records in a Neon PostgreSQL database.
 
-  curl -i -X POST http://localhost:8080/characters/create-character \
-    -H "Content-Type: application/json" \
-    -d '{"name":"Yuji","age":15,"chapterFirstAppearance":1,"characterType":"JUJUTSU_SORCERER","description":"Main character"}'; echo
+## Installation
 
-## 2. Get all Characters 
+Prerequisites
+- Java 21
+- A Neon.tech PostgreSQL database
 
-  curl -i http://localhost:8080/characters/get-character/all; echo
+Setup
+1. Clone the repository.
+2. Open `src/main/resources/application.properties` and set your Neon connection.
 
-## 3. Get Character by ID 
+Example
+spring.datasource.url=jdbc:postgresql://YOUR_NEON_HOST:5432/YOUR_DB?sslmode=require  
+spring.datasource.username=YOUR_NEON_USERNAME  
+spring.datasource.password=YOUR_NEON_PASSWORD  
+spring.jpa.hibernate.ddl-auto=update  
 
-  Worked:
-  
-  curl -i http://localhost:8080/characters/get-character/all; echo
-  
-  Failed:
-  
-  curl -i http://localhost:8080/characters/get-character/99999; echo
+3. Run the app.
+- Linux: `./mvnw spring-boot:run`
 
-## 4. Get Character by Type (role)
+Base URL
+http://localhost:8080
 
-  Cursed Spirit: 
-  
-  curl -i "http://localhost:8080/characters/by-type?type=CURSED_SPIRIT"; echo
-  
-  JUJUTSU_SORCERER: 
-  
-  curl -i "http://localhost:8080/characters/by-type?type=JUJUTSU_SORCERER"; echo
+## API Endpoints
 
-## 5. Search by substring 
+All endpoints are prefixed with `/characters`.
 
-  Valid:
-  
-  curl -i "http://localhost:8080/characters/search?name=go"; echo
-  
-  No results:
-  
-  curl -i "http://localhost:8080/characters/search?name=zzzz"; echo
+Create character
+POST /characters/create-character
 
-## 6. Get by name 
+Request body (JSON)
+{
+  "name": "Yuji",
+  "age": 15,
+  "chapterFirstAppearance": 1,
+  "characterType": "JUJUTSU_SORCERER",
+  "description": "Main character"
+}
 
-Success: 
+Get all characters
+GET /characters/get-character/all
 
-  curl -i http://localhost:8080/characters/get-character-name/Yuji; echo
-  
-  Error:
-  
-  curl -i http://localhost:8080/characters/get-character-name/DoesNotExist; echo
+Get character by id
+GET /characters/get-character/{id}
 
-## 7. Update Name 
+Get character by exact name
+GET /characters/get-character-name/{name}
 
-  Success:
-  
-  curl -i -X PUT http://localhost:8080/characters/update-character/name/ID_YUJI/YujiUpdated; echo
-  
-  Confirm:
-  
-  curl -i http://localhost:8080/characters/get-character/ID_YUJI; echo
-  
-  Error:
-  
-  curl -i -X PUT http://localhost:8080/characters/update-character/name/99999/Nope; echo
+Filter characters by type
+GET /characters/by-type?type={CharacterType}
 
-## 8. Delete character 
+Search characters by name substring
+GET /characters/search?name={substring}
 
-  curl -i -X DELETE http://localhost:8080/characters/delete-character/ID_GOJO; echo
-  
-  Confirm:
-  
-  curl -i http://localhost:8080/characters/get-character/ID_GOJO; echo
+Update character name
+PUT /characters/update-character/name/{id}/{newName}
+
+Delete character
+DELETE /characters/delete-character/{id}
+
+## CharacterType Values
+
+JUJUTSU_SORCERER  
+CURSED_SPIRIT  
+SHIKIGAMI  
+CURSED_CORPSE  
