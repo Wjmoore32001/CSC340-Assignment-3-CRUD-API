@@ -14,11 +14,16 @@ public class CharacterService {
   }
 
   // POST Methods ---------------------------------------------------
+
   public Character createCharacter(Character character) {
     return characterRepository.save(character);
   }
 
   // GET Methods ------------------------------------------------------
+  public List<Character> searchCharacterByName(String name) {
+    return characterRepository.searchByName(name);
+  }
+
   public List<Character> getAllCharacters() {
     return characterRepository.findAll();
   }

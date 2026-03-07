@@ -17,11 +17,7 @@ public class CharacterController {
     this.characterService = characterService;
   }
 
-  @PostMapping("/create-character")
-  public Character createCharacter(@RequestBody Character character) {
-    return characterService.createCharacter(character);
-  }
-
+  // GetMappings
   @GetMapping("/get-character/all")
   public ResponseEntity<List<Character>> getAllCharacters() {
     return ResponseEntity.ok(characterService.getAllCharacters());
@@ -48,6 +44,18 @@ public class CharacterController {
 
   }
 
+  @GetMapping("/search")
+  public List<Character> searchCharacterByName(@RequestParam String name) {
+    return characterService.searchCharacterByName(name);
+  }
+
+  // PostMappings
+  @PostMapping("/create-character")
+  public Character createCharacter(@RequestBody Character character) {
+    return characterService.createCharacter(character);
+  }
+
+  // PutMappings
   @PutMapping("/update-character/name/{id}/{newName}")
   public ResponseEntity<?> updateCharacterName(@PathVariable Long id, @PathVariable String newName) {
     Character c = characterService.updateCharacterName(id, newName);
@@ -58,6 +66,7 @@ public class CharacterController {
     }
   }
 
+  // DeleteMappings
   @DeleteMapping("/delete-character/{id}")
   public ResponseEntity<Void> deleteCharacter(@PathVariable Long id) {
     characterService.deleteCharacter(id);
