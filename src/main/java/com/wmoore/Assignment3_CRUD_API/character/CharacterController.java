@@ -18,6 +18,11 @@ public class CharacterController {
   }
 
   // GetMappings
+  @GetMapping("/by-type")
+  public List<Character> byType(@RequestParam("type") CharacterType type) {
+    return characterService.getByType(type);
+  }
+
   @GetMapping("/get-character/all")
   public ResponseEntity<List<Character>> getAllCharacters() {
     return ResponseEntity.ok(characterService.getAllCharacters());
@@ -26,11 +31,10 @@ public class CharacterController {
   @GetMapping("/get-character-name/{name}")
   public ResponseEntity<Collection<Character>> getCharacterByName(@PathVariable String name) {
     Collection<Character> c = characterService.getCharacterByName(name);
-    if (c != null) {
-      return ResponseEntity.ok(c);
-    } else {
+    if (c == null || c.isEmpty()) {
       return ResponseEntity.notFound().build();
     }
+    return ResponseEntity.ok(c);
   }
 
   @GetMapping("/get-character/{id}")

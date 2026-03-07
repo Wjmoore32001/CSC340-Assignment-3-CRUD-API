@@ -20,6 +20,10 @@ public class CharacterService {
   }
 
   // GET Methods ------------------------------------------------------
+  public List<Character> getByType(CharacterType type) {
+    return characterRepository.findByCharacterType(type);
+  }
+
   public List<Character> searchCharacterByName(String name) {
     return characterRepository.searchByName(name);
   }

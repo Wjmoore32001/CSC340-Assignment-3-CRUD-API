@@ -16,4 +16,7 @@ public interface CharacterRepository extends JpaRepository<Character, Long> {
 
   @Query("select c from Character c where c.name like concat('%', :name, '%')")
   List<Character> searchByName(@Param("name") String name);
+
+  @Query("select c from Character c where c.characterType = :type")
+  List<Character> findByCharacterType(@Param("type") CharacterType type);
 }
