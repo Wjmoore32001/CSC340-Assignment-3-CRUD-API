@@ -15,7 +15,7 @@ https://uncg-my.sharepoint.com/:v:/g/personal/wjmoore_uncg_edu/IQBOaF6WsvsKQaRnP
 
   curl -i http://localhost:8080/characters/get-character/all; echo
 
-### 3. Get Character by ID 
+## 3. Get Character by ID 
 
   Worked:
   
@@ -25,7 +25,7 @@ https://uncg-my.sharepoint.com/:v:/g/personal/wjmoore_uncg_edu/IQBOaF6WsvsKQaRnP
   
   curl -i http://localhost:8080/characters/get-character/99999; echo
 
-### 4. Get Character by Type (role)
+## 4. Get Character by Type (role)
 
   Cursed Spirit: 
   
@@ -35,7 +35,7 @@ https://uncg-my.sharepoint.com/:v:/g/personal/wjmoore_uncg_edu/IQBOaF6WsvsKQaRnP
   
   curl -i "http://localhost:8080/characters/by-type?type=JUJUTSU_SORCERER"; echo
 
-### 5. Search by substring 
+## 5. Search by substring 
 
   Valid:
   
@@ -45,7 +45,7 @@ https://uncg-my.sharepoint.com/:v:/g/personal/wjmoore_uncg_edu/IQBOaF6WsvsKQaRnP
   
   curl -i "http://localhost:8080/characters/search?name=zzzz"; echo
 
-### 6. Get by name 
+## 6. Get by name 
 
 Success: 
 
@@ -55,7 +55,7 @@ Success:
   
   curl -i http://localhost:8080/characters/get-character-name/DoesNotExist; echo
 
-### 7. Update Name 
+## 7. Update Name 
 
   Success:
   
@@ -69,7 +69,7 @@ Success:
   
   curl -i -X PUT http://localhost:8080/characters/update-character/name/99999/Nope; echo
 
-### 8. Delete character 
+## 8. Delete character 
 
   curl -i -X DELETE http://localhost:8080/characters/delete-character/ID_GOJO; echo
   
