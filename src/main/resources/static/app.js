@@ -1,5 +1,5 @@
 const characterList = document.getElementById("character-list");
-console.log("NEW VERSION OF APPJS IS RUNNING");
+
 fetch('/characters/get-character/all').then(response => {
   console.log("got response");
   return response.json();
@@ -9,22 +9,15 @@ fetch('/characters/get-character/all').then(response => {
     console.log(data);
     characterList.innerHTML = "";
 
-    data.forEach((character, index) => {
+    data.forEach((character) => {
       const divRow = document.createElement("div");
       divRow.className = "row mb-5";
 
       const divColumn1 = document.createElement("div");
       divColumn1.className = "col-6 col-lg-6";
 
-      let detailId;
-      if (index < 2) {
-        detailId = character.characterId;
-      } else {
-        detailId = data[0].characterId;
-      }
-
       divColumn1.innerHTML = `
-        <a href="details.html?id=${detailId}">
+        <a href="details.html?id=${character.characterId}">
           <img src="${character.imageUrl}" class="img-fluid" alt="${character.name}">
         </a>
       `;

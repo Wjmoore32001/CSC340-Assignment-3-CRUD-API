@@ -36,39 +36,44 @@
     <h1 class="mb-5 mt-5" id="page-title">Character Details</h1>
   </div>
 
-  <div class="container-fluid">
-    <div class="container">
-      <div class="row">
-        <div class="col-6 col-lg-6">
-          <img id="character-image" src="" alt="" class="img-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 col-lg-6">
+        <img id="character-image" src="" alt="" class="img-fluid">
+      </div>
+
+      <div class="col-6 col-lg-6">
+        <p class="fs-4 mb-4">
+          <span class="h3 fw-bold">Name:</span>
+          <span id="detail-name"></span>
+        </p>
+
+        <p class="fs-4 mb-4">
+          <span class="h3 fw-bold">Type:</span>
+          <span id="detail-type"></span>
+        </p>
+
+        <p class="fs-4 mb-4">
+          <span class="h3 fw-bold">Age:</span>
+          <span id="detail-age"></span>
+        </p>
+
+        <p class="fs-4 mb-4">
+          <span class="h3 fw-bold">First Appearance:</span>
+          <span id="detail-chapter"></span>
+        </p>
+
+        <p class="fs-4 mb-4">
+          <span class="h3 fw-bold">Description:</span>
+          <span id="detail-description"></span>
+        </p>
+
+        <div class="mt-4 d-flex gap-3">
+          <button id="edit-character-button" class="btn btn-outline-success">Edit Character</button>
+          <button id="delete-character-button" class="btn btn-outline-danger">Delete Character</button>
         </div>
 
-        <div class="col-6 col-lg-6">
-          <p class="fs-4 mb-4">
-            <span class="h3 fw-bold">Name:</span>
-            <span id="detail-name"></span>
-          </p>
-
-          <p class="fs-4 mb-4">
-            <span class="h3 fw-bold">Type:</span>
-            <span id="detail-type"></span>
-          </p>
-
-          <p class="fs-4 mb-4">
-            <span class="h3 fw-bold">Age:</span>
-            <span id="detail-age"></span>
-          </p>
-
-          <p class="fs-4 mb-4">
-            <span class="h3 fw-bold">First Appearance:</span>
-            <span id="detail-chapter"></span>
-          </p>
-
-          <p class="fs-4 mb-4">
-            <span class="h3 fw-bold">Description:</span>
-            <span id="detail-description"></span>
-          </p>
-        </div>
+        <p id="details-message" class="mt-3"></p>
       </div>
     </div>
   </div>

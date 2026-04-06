@@ -1,10 +1,8 @@
 package com.wmoore.Assignment3_CRUD_API.character;
 
 import java.util.Map;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -45,7 +43,6 @@ public class CharacterController {
     } else {
       return ResponseEntity.status(404).body(Map.of("error", "Character Not Found", "id", id));
     }
-
   }
 
   @GetMapping("/search")
@@ -60,9 +57,9 @@ public class CharacterController {
   }
 
   // PutMappings
-  @PutMapping("/update-character/name/{id}/{newName}")
-  public ResponseEntity<?> updateCharacterName(@PathVariable Long id, @PathVariable String newName) {
-    Character c = characterService.updateCharacterName(id, newName);
+  @PutMapping("/update-character/{id}")
+  public ResponseEntity<?> updateCharacter(@PathVariable Long id, @RequestBody Character updatedCharacter) {
+    Character c = characterService.updateCharacter(id, updatedCharacter);
     if (c != null) {
       return ResponseEntity.ok(c);
     } else {
@@ -72,9 +69,8 @@ public class CharacterController {
 
   // DeleteMappings
   @DeleteMapping("/delete-character/{id}")
-  public ResponseEntity<Void> deleteCharacter(@PathVariable Long id) {
+  public ResponseEntity<?> deleteCharacter(@PathVariable Long id) {
     characterService.deleteCharacter(id);
     return ResponseEntity.noContent().build();
   }
-
 }

@@ -1,7 +1,6 @@
 package com.wmoore.Assignment3_CRUD_API.character;
 
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -14,7 +13,6 @@ public class CharacterService {
   }
 
   // POST Methods ---------------------------------------------------
-
   public Character createCharacter(Character character) {
     return characterRepository.save(character);
   }
@@ -41,9 +39,14 @@ public class CharacterService {
   }
 
   // PUT Methods --------------------------------------------------------
-  public Character updateCharacterName(Long id, String newName) {
+  public Character updateCharacter(Long id, Character updatedCharacter) {
     return characterRepository.findById(id).map(character -> {
-      character.setName(newName);
+      character.setName(updatedCharacter.getName());
+      character.setCharacterType(updatedCharacter.getCharacterType());
+      character.setAge(updatedCharacter.getAge());
+      character.setDescription(updatedCharacter.getDescription());
+      character.setChapterFirstAppearance(updatedCharacter.getChapterFirstAppearance());
+      character.setImageUrl(updatedCharacter.getImageUrl());
       return characterRepository.save(character);
     }).orElse(null);
   }
