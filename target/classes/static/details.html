@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav flex-row gap-3">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+        <li>
+          <a class="nav-link active" href="about.html">About</a>
+        </li>
+        <li>
+          <a class="nav-link active" href="details.html">Details</a>
+        </li>
+        <li>
+          <a class="nav-link active" href="new-character-form.html">Add a Character</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="'Character Name'" />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="text-center">
+    <h1 class="mb-5 mt-5" id="page-title">Character Details</h1>
+  </div>
+
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-lg-6">
+          <img id="character-image" src="" alt="" class="img-fluid">
+        </div>
+
+        <div class="col-6 col-lg-6">
+          <p class="fs-4 mb-4">
+            <span class="h3 fw-bold">Name:</span>
+            <span id="detail-name"></span>
+          </p>
+
+          <p class="fs-4 mb-4">
+            <span class="h3 fw-bold">Type:</span>
+            <span id="detail-type"></span>
+          </p>
+
+          <p class="fs-4 mb-4">
+            <span class="h3 fw-bold">Age:</span>
+            <span id="detail-age"></span>
+          </p>
+
+          <p class="fs-4 mb-4">
+            <span class="h3 fw-bold">First Appearance:</span>
+            <span id="detail-chapter"></span>
+          </p>
+
+          <p class="fs-4 mb-4">
+            <span class="h3 fw-bold">Description:</span>
+            <span id="detail-description"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="details.js"></script>
+</body>
+
+</html>
