@@ -1,8 +1,14 @@
 package com.wmoore.Assignment3_CRUD_API.character;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "characters")
 public class Character {
 
@@ -19,16 +25,6 @@ public class Character {
   public Integer age;
   public String description;
   public Integer chapterFirstAppearance;
+  public String imageUrl;
 
-  protected Character() {
-  }
-
-  // Getter & Setters
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
 }
