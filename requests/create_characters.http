@@ -1,0 +1,93 @@
+### Base URL
+
+@baseUrl = http://localhost:8080
+
+
+### 
+
+POST {{baseUrl}}/characters/create-character HTTP/1.1
+Content-Type: application/json
+
+{
+  "age": 15,
+  "chapterFirstAppearance": 1,
+  "characterType": "JUJUTSU_SORCERER",
+  "description": "Main character of JJK. Yuji is a first-year jujutsu sorcerer and the vessel of Ryomen Sukuna. He joins Tokyo Jujutsu High after swallowing one of Sukuna's fingers.",
+  "imageUrl": "images/itadori_bamboo.jpg",
+  "name": "Yuji Itadori"
+}
+
+
+### 
+
+POST {{baseUrl}}/characters/create-character HTTP/1.1
+Content-Type: application/json
+
+{
+  "age": 28,
+  "chapterFirstAppearance": 2,
+  "characterType": "JUJUTSU_SORCERER",
+  "description": "Satoru Gojo is a special grade jujutsu sorcerer and teacher at Tokyo Jujutsu High. He is widely known as the strongest sorcerer in the modern era.",
+  "imageUrl": "images/gojo_red.jpeg",
+  "name": "Satoru Gojo"
+}
+
+
+### 
+
+POST {{baseUrl}}/characters/create-character HTTP/1.1
+Content-Type: application/json
+
+{
+  "age": 15,
+  "chapterFirstAppearance": 1,
+  "characterType": "JUJUTSU_SORCERER",
+  "description": "Megumi Fushiguro is a first-year jujutsu sorcerer at Tokyo Jujutsu High. He uses the Ten Shadows Technique to summon shikigami in battle.",
+  "imageUrl": "images/megumi_spirits.jpg",
+  "name": "Megumi Fushiguro"
+}
+
+
+### 
+
+POST {{baseUrl}}/characters/create-character HTTP/1.1
+Content-Type: application/json
+
+{
+  "age": 35,
+  "chapterFirstAppearance": 66,
+  "characterType": "JUJUTSU_SORCERER",
+  "description": "Toji Fushiguro is a former member of the Zenin clan with no cursed energy. He is known for his overwhelming physical strength and his use of cursed tools.",
+  "imageUrl": "images/toji_chad.png",
+  "name": "Toji Fushiguro"
+}
+
+
+### 
+
+POST {{baseUrl}}/characters/create-character HTTP/1.1
+Content-Type: application/json
+
+{
+  "age": 27,
+  "chapterFirstAppearance": 10,
+  "characterType": "JUJUTSU_SORCERER",
+  "description": "Suguru Geto is a former jujutsu sorcerer who became an enemy of jujutsu society. His cursed technique lets him absorb and control cursed spirits.",
+  "imageUrl": "images/geto_with_spirit.jpg",
+  "name": "Suguru Geto"
+}
+
+
+### 
+
+POST {{baseUrl}}/characters/create-character HTTP/1.1
+Content-Type: application/json
+
+{
+  "age": 1000,
+  "chapterFirstAppearance": 1,
+  "characterType": "CURSED_SPIRIT",
+  "description": "Ryomen Sukuna is known as the King of Curses. He exists within Yuji Itadori after Yuji consumes one of his cursed fingers.",
+  "imageUrl": "images/sukuna_smile.png",
+  "name": "Ryomen Sukuna"
+}
