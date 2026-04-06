@@ -1,17 +1,13 @@
 const characterList = document.getElementById("character-list");
-
-fetch('/characters/get-character/all')
-  .then(response => {
-    console.log("got response");
-    return response.json();
-  })
+console.log("NEW VERSION OF APPJS IS RUNNING");
+fetch('/characters/get-character/all').then(response => {
+  console.log("got response");
+  return response.json();
+})
   .then(data => {
     console.log("got data");
     console.log(data);
-
     characterList.innerHTML = "";
-
-    const firstCharacterId = data[0].characterId;
 
     data.forEach((character, index) => {
       const divRow = document.createElement("div");
@@ -24,19 +20,14 @@ fetch('/characters/get-character/all')
       if (index < 2) {
         detailId = character.characterId;
       } else {
-        detailId = firstCharacterId;
+        detailId = data[0].characterId;
       }
 
-      const link = document.createElement("a");
-      link.href = `details.html?id=${detailId}`;
-
-      const image = document.createElement("img");
-      image.src = character.imageUrl;
-      image.alt = character.name;
-      image.className = "img-fluid";
-
-      link.appendChild(image);
-      divColumn1.appendChild(link);
+      divColumn1.innerHTML = `
+        <a href="details.html?id=${detailId}">
+          <img src="${character.imageUrl}" class="img-fluid" alt="${character.name}">
+        </a>
+      `;
 
       const divColumn2 = document.createElement("div");
       divColumn2.className = "col-6 col-lg-6";
